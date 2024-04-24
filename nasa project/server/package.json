@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest --watch --detectOpenHandles",
+    "start": "nodemon src/server.js",
+    "cluster": "pm2 start src/server.js -i max"
+  },
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^4.15.1",
+    "env": "^0.0.2",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "pm2": "^5.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "supertest": "^6.3.4"
+  }
+}

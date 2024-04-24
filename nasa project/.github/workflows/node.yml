@@ -1,0 +1,19 @@
+name: NASA Project CI # Defines the name of the GitHub Actions workflow (project name)
+
+on: # Specifies when to trigger the workflow
+  push: # Triggers the workflow on push events
+    branches: [master] # Specifies that the workflow should run only on the master branch
+  pull_request: # Triggers the workflow on pull requests
+    branches: [master] # Specifies that the workflow should run only on the master branch
+
+jobs:
+  build: # Defines a job named "build" (or deploy)
+    runs-on: ubuntu-latest # Specifies the operating system (OS) on which this project should run (ubuntu-latest)
+    steps:
+      - uses: actions/checkout@v2 # Checks out the repository
+      - name: Use Node.js version 16 # Specifies the Node.js version to use
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16 # Specifies the Node.js version (16)
+      - run: npm install # Installs project dependencies
+      - run: npm run build --prefix client # Runs the build script for the client directory
